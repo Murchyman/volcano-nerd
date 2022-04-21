@@ -1,34 +1,42 @@
-.container{
-    margin-top: -1em;
-    width: 100vw;
-    background-color: #32373B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1em;
-    color: #D8DBE2;
-
+.container {
+  margin-top: -1em;
+  width: 100vw;
+  background-color: #000f08;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
+  color: #f7f4f3;
 }
 
 .navbar {
-    height : 5vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 1em;
-    padding-left: 1em;
-  }
-  .NavbarLogo{
+  height: 5vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1em;
+  padding-left: 1em;
+  font-size: 1.5em;
+}
+.NavbarLogo {
+}
 
-  }
+.NavBarLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  width: 25vw;
+  font-weight: 900;
+}
 
-  .NavBarLinks{
-      display: flex;
-      flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5em;
-        width: 30vw;
-  }
+.NavBarLinks :hover {
+  color: #4361ee;
+}
+
+.NavbarLogo :hover {
+  color: #4361ee;
+}
