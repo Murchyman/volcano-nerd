@@ -5,13 +5,16 @@ import Button from '@mui/material/Button';
 
 
 export default function DataTable(props) {
+
+
+    
     const columns = [
         { field: 'title', headerName: 'Title', width: 300 },
         { field: 'author_name', headerName: 'Author', width: 200 },
         {
             field: 'link',
             headerName: 'Learn More',
-            width: 150,
+            width: 130,
             renderCell: (params) => (
               <strong>
                 <Button
@@ -32,12 +35,13 @@ export default function DataTable(props) {
     const rows = props.Data.map((item, i) => ({ id: i, title: item?.title, author_name: item?.authors[0]?.name, link: item?.title }));
 
     return (
-        <div style={{ height: 400, width: '100%' }}>
+        <div style={{ height: '60%', width: '40em' }}>
             <DataGrid
                 rows={rows}
                 columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
+                pageSize={10}
+                rowsPerPageOptions={[10]}
+                loading={props.Loading}
             />
         </div>
     );
