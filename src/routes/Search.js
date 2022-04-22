@@ -1,5 +1,6 @@
 import DataTable from "../Components/DataTable";
 import TextField from "@mui/material/TextField";
+import { Button } from '@mui/material';
 import Autocomplete from "@mui/material/Autocomplete";
 import countries from "../data/countries.json";
 import { useState } from "react";
@@ -32,7 +33,7 @@ function Search() {
                             setSearchCountry(newInputValue);
                         }}
 
-                        sx={{ width: 300 }}
+                        sx={{ width: 200 }}
                         renderInput={(params) => <TextField {...params} label="Countries" />}
                     />{" "}
                     <Autocomplete
@@ -42,12 +43,11 @@ function Search() {
                         }}
                         id="combo-box-demo"
                         options={distances}
-                        sx={{ width: 300 }}
+                        sx={{ width: 200 }}
                         renderInput={(params) => <TextField {...params} label="Populated Within" />}
                     />{" "}
-                    <button onClick={GetData}>Search</button>
+                    <Button sx={{ width: 150 }} onClick={GetData} variant="contained">Search</Button>
                 </div>
-                <h1>The Books</h1>
 
                 <DataTable Data={data} Loading={isloding} />
             </div>

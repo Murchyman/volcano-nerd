@@ -35,7 +35,7 @@ export default function DataTable(props) {
 
   ];
 
-  const rows = props.Data.map((item, i) => ({ id: item?.id, name: item?.name, country: item?.country, region: item?.region, subregion: item.subregion, link: item?.name }));
+  const rows = props.Data?.map((item, i) => ({ id: item?.id, name: item?.name, country: item?.country, region: item?.region, subregion: item.subregion, link: item?.name }));
 
   return (
     <div style={{ width: '100%' }} >
