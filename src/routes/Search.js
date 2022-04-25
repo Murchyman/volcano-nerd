@@ -10,8 +10,15 @@ function Search() {
     const [isloding, setIsloding] = useState(false);
     const [searchCountry, setSearchCountry] = useState("");
     const [searchPopulatedDistance, setSearchPopulatedDistance] = useState("");
-    const GetData = (endpoint) => {
+
+    const GetData = () => {
+        //if no input, jump out to avoid error
+        if (searchCountry === "") {
+            return;
+        }
         setIsloding(true);
+        //this is a bit hacky, rather than implement seperate fetch depending on whether or not user selects a populated distance
+        //I just pass an empty string in populated distance and the endoint is smart enough to figure it out
         fetch(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${searchCountry}&populatedWithin=${searchPopulatedDistance}`)
             .then((response) => response.json())
             .then((json) => {
@@ -21,6 +28,7 @@ function Search() {
                 setIsloding(false);
             });
     };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -29,6 +37,7 @@ function Search() {
                         disablePortal
                         id="combo-box-demo"
                         options={countries}
+
                         onInputChange={(event, newInputValue) => {
                             setSearchCountry(newInputValue);
                         }}

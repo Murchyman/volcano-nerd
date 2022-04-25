@@ -1,5 +1,6 @@
 import styles from '../styles/Home.module.css';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className={styles.container}>
@@ -10,7 +11,7 @@ function Home() {
             for the <span className={styles.pink}>Smithsonian Institutions</span> global <span className={styles.orange}> volcanism </span>program</span>
 
           <div className={styles.buttonContainer}>
-            <Button style={{ minWidth: '12em', minHeight: '4em' }} variant="contained">Get Started</Button>
+            <Link to="/Search"><Button style={{ minWidth: '12em', minHeight: '4em' }} variant="contained">Get Started</Button></Link>
           </div>
 
         </div>

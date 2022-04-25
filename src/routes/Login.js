@@ -1,60 +1,62 @@
 import React from 'react'
+import styles from '../styles/Login.module.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-const SignOnForm = (props) => {
-  const [username, setUsername] = useState("");
+const SignOnForm = () => {
+  const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
+
+  const GetData = () => {
+    //if no input, jump out to avoid error
+
+    setIsLoading(true);
+    //this is a bit hacky, rather than implement seperate fetch depending on whether or not user selects a populated distance
+    //I just pass an empty string in populated distance and the endoint is smart enough to figure it out
+    fetch(`http://sefdb02.qut.edu.au:3001/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: Email,
+        password: password
+      })
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        setIsLoading(false);
+        setError("Something went wrong");
+        throw new Error('Something went wrong');
+      })
+      .then((json) => {
+        sessionStorage.setItem("jwt", json?.token);
+      })
+
+      .then(() => {
+        setIsLoading(false);
+      })
+      .then(() => {
+        window.location.href = "/";
+      })
+
+  };
 
   return (
     <>
 
-
-      <style jsx>{`
-      .wrapper {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .signInPage {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .error {
-        color: red;
-      }
-      .signInForm {
-        text-align: center;
-        min-width: 23em;
-        padding: 2em;
-        justify-content: space-between;
-      }
-      .buttons {
-        text-align: right;
-        margin-top: 8vh;
-      }
-
-      img {
-        max-width: 60%;
-        max-height: 60%;
-      }
-    `}</style>
-
-      <div className="wrapper">
-        <div className="signInPage">
+      <div className={styles.wrapper}>
+        <div className={styles.signInPage}>
           <Paper elevation={3}>
-            <div className="signInForm">
+            <div className={styles.signInForm}>
               <div>
                 <h3>Sign In</h3>
                 <p>Use your provided credentials</p>
@@ -66,12 +68,12 @@ const SignOnForm = (props) => {
                   fullWidth
                   error={error !== ""}
                   onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                     setError("");
                   }}
                   type="email"
                   name="email"
-                  label="Username"
+                  label="Email"
                   variant="outlined"
                 />
                 <br />
@@ -89,18 +91,24 @@ const SignOnForm = (props) => {
                   variant="outlined"
                 />
                 <br />
-                <p className="error">{error}</p>
+                <p className={styles.error}>{error}</p>
               </div>
 
-              <div className="buttons">
+              <div className={styles.buttons}>
+                <Button>
+                  <Link to="/Register">Create Account</Link>
+                </Button>
+
                 {" "}
-                <Button
+                <LoadingButton
+                  loading={isLoading}
                   onClick={() => {
+                    GetData();
                   }}
                   variant="contained"
                 >
                   Sign In
-                </Button>
+                </LoadingButton>
               </div>
             </div>
           </Paper>

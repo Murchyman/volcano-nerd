@@ -1,0 +1,38 @@
+
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .signInPage {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .error {
+      color: red;
+    }
+    .signInForm {
+      text-align: center;
+      min-width: 23em;
+      padding: 2em;
+      justify-content: space-between;
+    }
+    .buttons {
+      display: flex;
+        justify-content: space-between;
+        
+      margin-top: 8vh;
+    }
+
+    img {
+      max-width: 60%;
+      max-height: 60%;
+    }

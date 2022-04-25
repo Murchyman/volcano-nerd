@@ -5,8 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1em;
   color: #f7f4f3;
+  padding: 1em;
+  padding-top: 2em;
+
 }
 
 .navbar {
@@ -35,6 +37,10 @@
 
 .NavBarLinks :hover {
   color: #4361ee;
+}
+
+.NavBarLinks Button:hover {
+  color: white;
 }
 
 .NavbarLogo :hover {
