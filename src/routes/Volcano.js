@@ -16,9 +16,16 @@ const Volcano = () => {
     const [zoom, setZoom] = useState(5);
 
     const SendQuery = () => {
-        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`)
+        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+            },
+        })
             .then((response) => response.json())
             .then((json) => {
+                console.log(json);
                 setVolcano(json);
                 setCenter([json.latitude, json.longitude]);
             });
