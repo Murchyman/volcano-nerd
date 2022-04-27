@@ -7,6 +7,7 @@ import Volcano from './routes/Volcano';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Navbar from './Components/Navbar';
+import Logout from './routes/Logout';
 import {
   BrowserRouter,
   Routes,
@@ -22,6 +23,7 @@ root.render(
       <Route path="search" element={<Search />} />
       <Route path="volcano/:volcanoID" element={<Volcano />} />
       <Route path="login" element={<Login />} />
+      <Route path="Logout" element={<Logout />} />
       <Route path="register" element={<Register />} />
     </Routes>
   </BrowserRouter>,

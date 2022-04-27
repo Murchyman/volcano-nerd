@@ -13,7 +13,7 @@ const Navbar = () => {
 
                     <div className={styles.linkItem}><NavLink to="/" >Home</NavLink></div>
                     <div className={styles.linkItem}><NavLink to="/search" >Search</NavLink></div>
-                    <div className={styles.linkItem}><NavLink to="/login" ><Button variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink></div>
+                    <div className={styles.linkItem}><NavLink to={sessionStorage.getItem("jwt") == null ? '/Login' : '/Logout'}><Button variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink></div>
 
                 </div>
             </div>
