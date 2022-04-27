@@ -15,17 +15,30 @@ const Volcano = () => {
     const [center, setCenter] = useState([50.879, 4.6997]);
     const [zoom, setZoom] = useState(5);
 
-    const SendQuery = () => {
-        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, {
+
+
+    //this is very ugly need to find a prettier way to do this
+    const options = sessionStorage.getItem("jwt") != null ? {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+        },
+    }
+        :
+
+        {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
             },
-        })
+        }
+
+
+    const SendQuery = () => {
+        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, options)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
                 setVolcano(json);
                 setCenter([json.latitude, json.longitude]);
             });
