@@ -8,7 +8,7 @@ export default function DataTable(props) {
     { field: "id", headerName: "ID", flex: 0.2 },
     { field: "name", headerName: "Name", flex: 1 },
     { field: "country", headerName: "Country", flex: 0.5 },
-    { field: "region", headerName: "Elevation", flex: 1 },
+    { field: "region", headerName: "Region", flex: 1 },
     { field: "subregion", headerName: "Subregion", flex: 1 },
     {
       field: "link",

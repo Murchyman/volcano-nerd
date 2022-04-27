@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/Volcano.module.css";
+import BarChart from "../Components/Barchart";
 import { Map, Marker } from "pigeon-maps";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
@@ -39,6 +40,7 @@ const Volcano = () => {
         fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, options)
             .then((response) => response.json())
             .then((json) => {
+                console.log(json);
                 setVolcano(json);
                 setCenter([json.latitude, json.longitude]);
             });
@@ -69,14 +71,26 @@ const Volcano = () => {
             </div>
             <h1>{volcano?.name}</h1>
             <div className={styles.info}>
-                <p>Country: {volcano?.country}</p>
-                <p>Region: {volcano?.region}</p>
-                <p>SubRegion: {volcano?.subregion}</p>
-                <p>Last Eruption: {volcano?.last_eruption}</p>
-                <p>Summit: {volcano?.summit}</p>
-                <p>Elavation: {volcano?.elevation}</p>
-                <p>Latitude: {volcano?.latitude}</p>
-                <p>Longitude: {volcano?.longitude}</p>
+                <div>
+                    <p>Country: {volcano?.country}</p>
+                    <p>Region: {volcano?.region}</p>
+                    <p>SubRegion: {volcano?.subregion}</p>
+                    <p>Last Eruption: {volcano?.last_eruption}</p>
+                    <p>Summit: {volcano?.summit}</p>
+                    <p>Elavation: {volcano?.elevation}</p>
+                    <p>Latitude: {volcano?.latitude}</p>
+                    <p>Longitude: {volcano?.longitude}</p>
+
+                </div>
+                <div className={styles.chart}>
+
+                    <BarChart data={volcano} />
+                    <p>Population within 5km: {volcano?.population_5km}</p>
+                    <p>Population within 10km: {volcano?.population_10km}</p>
+                    <p>Population within 30km: {volcano?.population_30km}</p>
+                    <p>Population within 100km: {volcano?.population_100km}</p>
+                </div>
+
             </div>
         </div>
     );
