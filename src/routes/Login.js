@@ -59,7 +59,7 @@ const SignOnForm = () => {
             <div className={styles.signInForm}>
               <div>
                 <h3>Sign In</h3>
-                <p>Use your provided credentials</p>
+                <p>Use the credentials you registered with</p>
               </div>
 
               <br />
