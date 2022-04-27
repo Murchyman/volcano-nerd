@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const Volcano = () => {
     useEffect(() => {
         SendQuery();
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     let params = useParams();
     const [volcano, setVolcano] = useState();
