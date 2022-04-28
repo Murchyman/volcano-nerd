@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className={styles.container}>
+
       <div className={styles.subContainer}>
         <div className={styles.left}>
           <span className={styles.heading}>

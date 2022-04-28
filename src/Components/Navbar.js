@@ -7,15 +7,16 @@ const Navbar = () => {
         <div className={styles.container}>
             <div className={styles.navbar}>
                 <div className={styles.NavbarLogo}>
-                    <NavLink to="/" >🌋 VolcanoNerd.com</NavLink>
+                    <NavLink to="/" >VolcanoNerd</NavLink>
                 </div>
                 <div className={styles.NavBarLinks}>
-
-                    <div className={styles.linkItem}><NavLink to="/" >Home</NavLink></div>
                     <div className={styles.linkItem}><NavLink to="/search" >Search</NavLink></div>
-                    <div className={styles.linkItem}><NavLink to={sessionStorage.getItem("jwt") == null ? '/Login' : '/Logout'}><Button variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink></div>
+                    <NavLink to={sessionStorage.getItem("jwt") == null ? '/Login' : '/Logout'}><Button style={{ height: '2.7em', width: '8em' }} className={styles.login} variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink>
+
 
                 </div>
+
+
             </div>
         </div>
     )

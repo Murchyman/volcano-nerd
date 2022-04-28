@@ -1,14 +1,17 @@
 .container {
   margin-top: -1em;
   width: 100vw;
-  background-color: #000f08;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f7f4f3;
+  color: #111439;
   padding: 1em;
   padding-top: 2em;
 
+}
+
+.login{
+  border-radius: 2em;
 }
 
 .navbar {
@@ -18,21 +21,22 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1em;
-  padding-left: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
   font-size: 1.5em;
 }
 .NavbarLogo {
+  font-weight: 900;
 }
 
 .NavBarLinks {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0.5em;
-  width: 25vw;
-  font-weight: 900;
+  width: 20vw;
+  font-size:0.8em ;
 }
 
 .NavBarLinks :hover {
