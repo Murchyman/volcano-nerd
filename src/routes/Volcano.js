@@ -16,25 +16,22 @@ const Volcano = () => {
     const [center, setCenter] = useState([50.879, 4.6997]);
     const [zoom, setZoom] = useState(5);
 
-
-
     //this is very ugly need to find a prettier way to do this
-    const options = sessionStorage.getItem("jwt") != null ? {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
-        },
-    }
-        :
-
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }
-
+    const options =
+        sessionStorage.getItem("jwt") != null
+            ? {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+                },
+            }
+            : {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            };
 
     const SendQuery = () => {
         fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, options)
@@ -80,17 +77,20 @@ const Volcano = () => {
                     <p>Elavation: {volcano?.elevation}</p>
                     <p>Latitude: {volcano?.latitude}</p>
                     <p>Longitude: {volcano?.longitude}</p>
-
                 </div>
-                <div className={styles.chart}>
-
-                    <BarChart data={volcano} />
-                    <p>Population within 5km: {volcano?.population_5km}</p>
-                    <p>Population within 10km: {volcano?.population_10km}</p>
-                    <p>Population within 30km: {volcano?.population_30km}</p>
-                    <p>Population within 100km: {volcano?.population_100km}</p>
+                <div >
+                    {volcano?.population_100km > 0 ? (
+                        <div className={styles.chart}>
+                            <BarChart data={volcano} />
+                            <p>Population within 5km: {volcano?.population_5km}</p>
+                            <p>Population within 10km: {volcano?.population_10km}</p>
+                            <p>Population within 30km: {volcano?.population_30km}</p>
+                            <p>Population within 100km: {volcano?.population_100km}</p>
+                        </div>
+                    ) : (
+                        sessionStorage.getItem("jwt") == null ? <p>Please Sign in to see population data</p> : <p>No Population Data</p>
+                    )}
                 </div>
-
             </div>
         </div>
     );
