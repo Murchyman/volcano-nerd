@@ -5,6 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
   color: #111439;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
