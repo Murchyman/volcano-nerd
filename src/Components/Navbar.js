@@ -11,7 +11,7 @@ const Navbar = () => {
                 </div>
                 <div className={styles.NavBarLinks}>
                     <div className={styles.linkItem}><NavLink to="/search" >Search</NavLink></div>
-                    <NavLink to={sessionStorage.getItem("jwt") == null ? '/Login' : '/Logout'}><Button style={{ height: '2.7em', width: '8em' }} className={styles.login} variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink>
+                    <NavLink to={sessionStorage.getItem("jwt") == null ? '/Login' : '/Logout'}><Button style={{ height: '2.7em', width: '8em', borderRadius: '5em' }} variant='contained'>{sessionStorage.getItem("jwt") == null ? 'Sign In' : 'Log Out'}</Button></NavLink>
 
 
                 </div>

@@ -14,19 +14,31 @@ import {
   Route,
 } from "react-router-dom";
 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#111439',
+    },
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="search" element={<Search />} />
-      <Route path="volcano/:volcanoID" element={<Volcano />} />
-      <Route path="login" element={<Login />} />
-      <Route path="Logout" element={<Logout />} />
-      <Route path="register" element={<Register />} />
-    </Routes>
-  </BrowserRouter>,
+  <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="search" element={<Search />} />
+        <Route path="volcano/:volcanoID" element={<Volcano />} />
+        <Route path="login" element={<Login />} />
+        <Route path="Logout" element={<Logout />} />
+        <Route path="register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>,
+  </ThemeProvider>
 );
 
 

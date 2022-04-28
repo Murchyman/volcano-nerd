@@ -10,10 +10,6 @@
 
 }
 
-.login{
-  border-radius: 2em;
-}
-
 .navbar {
   height: 5vh;
   width: 100vw;
@@ -40,7 +36,7 @@
 }
 
 .NavBarLinks :hover {
-  color: #4361ee;
+  color: #7e809e;
 }
 
 .NavBarLinks Button:hover {
@@ -48,5 +44,5 @@
 }
 
 .NavbarLogo :hover {
-  color: #4361ee;
+  color: #7e809e;
 }
