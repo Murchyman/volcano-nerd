@@ -19,17 +19,38 @@
     align-items: center;
     justify-content: space-around;
     width: 70%;
-    border: 1px solid #111439;
     background-color: #fff;
     padding: 5em;    
     
 }
 .chart{
     display: flex;
+    flex-direction: row;
+    border: 0.5em solid #111439;
+    padding: 1em;
+}
+
+.chartInfo{
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 50vh;
-    font-size: small;
+    width: 30%;
+    background-color: #fff;
+    padding: 5em;
+}
+.TextInfo{
+    border: 0.5em solid #111439;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 
+.container{
+    margin-left: 3em;
+    border: 0.5em solid #111439;
+    background-color: #111439;
 }

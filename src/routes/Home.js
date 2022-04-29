@@ -15,7 +15,7 @@ function Home() {
           </span>
           <div className={styles.subHeading}>
             <h3>
-              thousands of nerds like you love to use our tools to search the  smithsonian global volcanism database and look
+              thousands of nerds like you love to use our tools to search the smithsonian global volcanism database and look
               at the pretty data.
             </h3>
           </div>
