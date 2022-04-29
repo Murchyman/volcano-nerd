@@ -1,24 +1,25 @@
 import React from "react";
 import styles from "../styles/Volcano.module.css";
 import BarChart from "../Components/Barchart";
+import useFetch from "../Hooks/useFetch";
 import { Map, Marker } from "pigeon-maps";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
 const Volcano = () => {
-    useEffect(() => {
-        SendQuery();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+
+
+
 
     let params = useParams();
-    const [volcano, setVolcano] = useState();
-    const [loading, setLoading] = useState(true);
-    const [center, setCenter] = useState([50.879, 4.6997]);
+    const [center, setCenter] = useState();
     const [zoom, setZoom] = useState(5);
 
     //this is very ugly need to find a prettier way to do this
     const options =
+        //if token is found, send authorization header otherwise send no authorization header
         sessionStorage.getItem("jwt") != null
             ? {
                 method: "GET",
@@ -34,21 +35,18 @@ const Volcano = () => {
                 },
             };
 
-    const SendQuery = () => {
-        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, options)
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
-                setVolcano(json);
-                setCenter([json.latitude, json.longitude]);
-            })
-            .then(() => setLoading(false));
-    };
+    const { data: volcano } = useFetch(`http://sefdb02.qut.edu.au:3001/volcano/${params.volcanoID}`, options);
+    useEffect(() => {
+        if (volcano) {
+            setCenter([volcano.latitude, volcano.longitude]);
+        }
+    }, [volcano]);
+
+
+
 
     return (
-        // I am not happy with this, I need to speak to the tutor about how to place the pidgeon map in a flexbox without it disapearing
-        // this fits the requirements fine but it's ugly so I will need to talk to the tutor about how to do this
-        <div style={loading ? { display: 'none' } : {}}>
+        <div style={!volcano ? { display: 'none' } : {}}>
             <div className={styles.wrapper}>
 
                 <h1>{volcano?.name}</h1>
