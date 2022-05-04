@@ -1,11 +1,14 @@
 import DataTable from "../Components/DataTable";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import useFetch from "../Hooks/useFetch";
 import Autocomplete from "@mui/material/Autocomplete";
-import countries from "../data/countries.json";
 import { useState } from "react";
 import styles from "../styles/Search.module.css";
 function Search() {
+  const { data: countries } = useFetch(
+    "http://sefdb02.qut.edu.au:3001/countries"
+  );
   const [data, setData] = useState([]);
   const [isloding, setIsloding] = useState(false);
   const [error, setError] = useState(null);
