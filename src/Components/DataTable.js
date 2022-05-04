@@ -42,6 +42,7 @@ export default function DataTable(props) {
   return (
     <div style={{ width: "100%", height: "70%" }}>
       <DataGrid
+        error={props.Error}
         autoHeight={true}
         disableExtendRowFullWidth={true}
         autoPageSize={true}
