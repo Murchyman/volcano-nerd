@@ -1,1 +1,8 @@
-(al-A’raf) 7:155 And Moses 😖😱😭 chose 👉😎👈 from his 👋 people 👨👩 seventy 🌥 men 👨 for Our appointment ✍. When 🍑 the tremor shook 🤝 them, he 👥 said 💬👱🏿💖, “My Lord 😇, had You 👈 willed, You 👈 could have destroyed 🏚 them before 😂, and me too. Will you 👈 destroy 🔨💥 us 🇺🇸 for what the fools 🤡 among 🙆🏽🅰 us 👨 have done 🔨? This is but 🍑 Your 👉 test—with it You 👈 misguide whomever 👱👱🏻👱🏼 You 👈🏼 will, and guide 📝😏 whomever 👱👱🏻👱🏼 You 👉😍 will. You 👈 are our Protector 🛡, so forgive 🙏 us 👨, and have mercy 🙏 on 🍆💦😘 us 🇺🇸. You 👈 are the Best 🏆 of Forgivers 🙏.
+Ya bih hin me yuh yuh
+She bin wanna fuh fuh
+I tella nuh uh uh
+Buh bih you can suh suh
+Ya bih rollin uh uh
+Ya bih gimme suh suh
+She gimme thuh suh suh
+Bih gimme thuh suh suh
