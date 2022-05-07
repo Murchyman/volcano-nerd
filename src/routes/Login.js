@@ -47,42 +47,6 @@ const SignOnForm = () => {
       window.location.href = "/";
     }
   }, [data]);
-  // const GetData = () => {
-  //   //if no input, jump out to avoid error
-
-  //   setIsLoading(true);
-  //   //this is a bit hacky, rather than implement seperate fetch depending on whether or not user selects a populated distance
-  //   //I just pass an empty string in populated distance and the endoint is smart enough to figure it out
-  //   fetch(`http://sefdb02.qut.edu.au:3001/user/login`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       email: Email,
-  //       password: password
-  //     })
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       }
-  //       setIsLoading(false);
-  //       setError("Something went wrong");
-  //       throw new Error('Something went wrong');
-  //     })
-  //     .then((json) => {
-  //       sessionStorage.setItem("jwt", json?.token);
-  //     })
-
-  //     .then(() => {
-  //       setIsLoading(false);
-  //     })
-  //     .then(() => {
-  //       window.location.href = "/";
-  //     })
-
-  // };
 
   return (
     <>
