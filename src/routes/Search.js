@@ -48,7 +48,8 @@ function Search() {
             <Autocomplete
               disablePortal
               id="combo-box-demo"
-              options={countries}
+              options={countries ?? []}
+              noOptionsText="Failed to retrieve countries, check your VPN connection"
               onInputChange={(event, newInputValue) => {
                 setSearchCountry(newInputValue);
               }}
