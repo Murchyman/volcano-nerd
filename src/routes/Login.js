@@ -20,6 +20,10 @@ const SignOnForm = () => {
   } = useFetch(fetchURL, fetchOptions);
 
   const setData = () => {
+    if (Email === "" && password === "") {
+      setError("Please enter your email and password");
+      return;
+    }
     setFetchURL(`http://sefdb02.qut.edu.au:3001/user/login`);
     setFetchOptions({
       method: "POST",
@@ -34,6 +38,10 @@ const SignOnForm = () => {
   };
 
   useEffect(() => {
+    if (data?.error) {
+      setError(data.message);
+      return;
+    }
     if (data) {
       sessionStorage.setItem("jwt", data.token);
       window.location.href = "/";
