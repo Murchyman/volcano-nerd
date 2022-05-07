@@ -15,9 +15,8 @@ const useFetch = (url, options) => {
       .catch((error) => {
         setError(error);
         setLoading(false);
-        throw new Error(error);
       });
-  }, [url]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [url, options]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return { data, loading, error };
 };
