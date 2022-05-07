@@ -13,11 +13,7 @@ const SignOnForm = () => {
   const [error, setError] = useState("");
   const [fetchOptions, setFetchOptions] = useState();
   const [fetchURL, setFetchURL] = useState();
-  const {
-    data,
-    loading: isLoading,
-    error: fetchError,
-  } = useFetch(fetchURL, fetchOptions);
+  const { data, loading: isLoading } = useFetch(fetchURL, fetchOptions);
 
   const setData = () => {
     if (Email === "" && password === "") {
